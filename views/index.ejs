@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+	<title>Facebook App</title>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/bootstrap/css/awesome-bootstrap-checkbox.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="assets/plugins/scroller/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/plugins/select/selectric.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/index.css">
+
+	<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/handlebars.js"></script>
+	<script type="text/javascript" src="assets/plugins/scroller/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="assets/plugins/select/jquery.selectric.min.js"></script>
+</head>
+<body>
+<div class="container hide text-center" id="login">
+	<img src="assets/images/background-1.png">
+	<div class="login-button">
+		<fb:login-button size="xlarge" scope="public_profile,email,publish_actions,user_friends,read_friendlists" onlogin="checkLoginState();"></fb:login-button>
+	</div>
+</div>
+
+<div class="container hide" id="choose-cast">
+	<div class="container mt-logo">
+		<div class="col-md-offset-2 col-md-8 text-center">
+			<h4 class="cast-title slim">You have the leading role.</h4>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="col-md-12 text-center">
+			<h4 class="cast-title">Please select 2-4 friends below for the supporting roles.</h4>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-offset-1 col-lg-8 col-md-offset-1 col-md-8 text-center" id="cast-list">
+				<div class="cast-role"><img id="my-avatar"></div>
+				<div class="cast-role"><div class="placeholder">costar 1*</div></div>
+				<div class="cast-role"><div class="placeholder">costar 2*</div></div>
+				<div class="cast-role optional"><div class="placeholder">costar 3</div></div>
+				<div class="cast-role optional"><div class="placeholder">costar 4</div></div>
+			</div>
+
+			<div class="col-lg-2 col-md-2">
+				<div class="checkbox-primary checkbox">
+					<input type="checkbox" checked id="condition-check">
+					<label for="condition-check">I agree to the terms &amp; conditions</label>
+				</div>
+				<div id="btn-submit"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container jumbotron">
+		<div class="col-md-12">
+			<form role="form">
+				<div class="form-group">
+					<input type="search" class="form-control" id="search-friends" placeholder="Start typing friend's name">
+					<span class="error" id="submit-error"></span>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-12 content" id="friend-list">
+		</div>
+	</div>
+
+	<div class="container text-center term-condition">
+		By submitting content to BET, you affirm that: (1) you are the rightful owner of the content submitted; (2) you agree to have the content broadcasted and used by BET in any and all media throughout perpetuity; and (3) you are at least age 18 or have your guardian’s consent to submit the content accordingly.
+	</div>
+</div>
+
+<div class="container hide" id="display-poster">
+	<div class="col-md-offset-8 col-md-3" id="select-display-wrapper">
+		<select class="form-control" id="select-display">
+			<option value="1" selected>the romatic comedy</option>
+			<option value="2">the sci fi</option>
+			<option value="3">the thriller</option>
+		</select>
+	</div>
+
+	<div class="col-md-offset-1 col-md-8">
+		<img title="The Romatic Comedy" class="poster" id="poster-1">
+		<img title="The Sci Fi" class="poster hide" id="poster-2">
+		<img title="The Thriller" class="poster hide" id="poster-3">
+	</div>
+
+	<div class="col-md-2">
+		<div id="btn-changeCast"></div>
+		<div id="btn-saveAndShare"></div>
+	</div>
+</div>
+
+<div class="container hide" id="share-posters">
+	<div class="col-md-offset-2 col-md-6">
+		<img title="poster" class="poster" id="shareItem-1">
+	</div>
+
+	<div class="col-md-2" id="btn-group">
+		<div id="btn-shareToFacebook"></div>
+		<div id="btn-shareToTwitter"></div>
+		<div id="btn-download"></div>
+		<div id="btn-startover"></div>
+	</div>
+</div>
+
+<script type="text/x-handlebars-template" id="friend-template">
+	<div class="col-md-3 col-xs-4 friend" id="{{id}}">
+		<div class="checkbox checkbox-primary">
+			<input type="checkbox" class="friend-check" id="friend-{{no}}">
+			<label for="friend-{{no}}">
+				<div class="avatar">
+					<img src={{avatar}}>
+				</div>
+				<div class="name">
+					{{name}}
+				</div>
+			</label>
+		</div>
+	</div>
+</script>
+
+<script type="text/javascript">
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript" src="assets/js/facebook.js"></script>
+</body>
+</html>

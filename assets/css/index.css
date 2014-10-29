@@ -1,0 +1,386 @@
+body {
+	background-color: black;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* login page */
+#login {
+	position: relative;
+	background-color: black;
+}
+
+#login img {
+	width: 100%;
+}
+
+.login-button {
+	position: absolute;
+	text-align: center;
+	top: 600px;
+	width: 100%;
+}
+
+@media all and (max-width: 1200px) {
+	.login-button {
+		top: 550px;
+	}
+}
+
+@media all and (max-width: 1024px) {
+	.login-button {
+		top: 500px;
+	}
+}
+
+/* choose cast page */
+.mt-logo {
+	margin-top: 500px;
+}
+
+@media all and (max-width: 1200px) {
+	.mt-logo {
+		margin-top: 400px;
+	}
+}
+
+@media all and (max-width: 990px) {
+	.mt-logo {
+		margin-top: 300px;
+	}
+}
+
+.jumbotron .col-md-12 {
+	padding: 0;
+}
+
+#btn-submit {
+	width: 108px;
+	height: 36px;
+	overflow: hidden;
+	background: url(../images/btn-submit.png) 0 0;
+	cursor: pointer;
+}
+
+#btn-submit:hover,
+#btn-submit:active,
+#btn-submit.active {
+	background-position: 0 -36px;
+}
+
+#choose-cast {
+	background: url(../images/background-2.png);
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+
+.production-image {
+	text-align: center;
+	margin: 50px 0;
+}
+
+.cast-title {
+	display: inline-block;
+	color: white;
+}
+
+.cast-title.slim {
+	font-weight: 400;
+}
+
+.cast-role {
+	display: inline-block;
+	width: 72px;
+	height: 72px;
+	margin: 20px 10px;
+	background-color: #ff9d05;
+	border-radius: 10px;
+	border: 1px solid white;
+}
+
+.cast-role.optional {
+	background-color: #313336;
+	border: 1px dotted white;
+}
+
+.cast-role img {
+	display: inline-block;
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+}
+
+.cast-role .placeholder {
+	display: inline-block;
+	color: white;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	border-radius: 10px;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.cast-role.optional .placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.checkbox {
+	margin-top: 20px;
+}
+
+.checkbox label {
+	font-size: 12px;
+	font-weight: 400;
+	color: white;
+}
+
+.custom-button.btn {
+	display: inline-block;
+	text-transform: uppercase;
+	color: white;
+}
+
+.custom-button.btn.blue {
+	background-color: #00a1ff;
+}
+
+.custom-button.btn.orange {
+	background-color: #ff9c00;
+}
+
+.custom-button.btn.blue:hover {
+	background-color: #3db7ff;
+}
+
+.custom-button.btn.orange:hover {
+	background-color: #ffb43d;
+}
+
+.jumbotron {
+	background-color: black;
+	border: 1px solid white;
+	box-shadow: 0px 0px 40px white;
+	margin-top: 20px;
+}
+
+#search-friends {
+	display: inline-block;
+	width: 50%;
+}
+
+.avatar {
+	display: inline-block;
+	width: 72px;
+	height: 72px;
+	border-radius: 10px;
+	border: 1px solid white;
+}
+
+.avatar img {
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+}
+
+.checkbox .prettycheckbox label {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 15px;
+	margin: 0;
+}
+
+.checkbox .name {
+	display: inline-block;
+	width: 60px;
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
+.checkbox .name div {
+	display: inline-block;
+}
+
+.term-condition {
+	color: white;
+	margin-bottom: 50px;
+}
+
+.error {
+	display: inline-block;
+	padding-left: 10px;
+	color: #ff9d05;
+}
+
+.error .icon-spin {
+	font-size: 16px;
+}
+
+#friend-list {
+	max-height: 300px;
+}
+
+.checkbox .friend-check {
+	top: 30px;
+	margin: 0;
+}
+
+/* poster display page */
+#display-poster {
+	background: url(../images/background-3.png);
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
+@media all and (max-width: 1200px) {
+	#display-poster {
+		background-size: 120% auto;
+	}
+}
+
+.poster {
+	width: 100%;
+	border: 1px solid white;
+	box-shadow: 0px 0px 40px white;
+	margin-bottom: 20px;
+}
+
+#select-display-wrapper {
+	position: relative;
+	margin-top: 410px;
+	margin-bottom: 40px;
+}
+
+#btn-changeCast,
+#btn-saveAndShare {
+	display: inline-block;
+	margin: 10px;
+	width: 159px;
+	height: 36px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#btn-changeCast {
+	background: url(../images/btn-changeCast.png) 0 0;
+}
+
+#btn-changeCast:hover {
+	background-position: 0 -36px;
+}
+
+#btn-saveAndShare {
+	background: url(../images/btn-saveAndShare.png) 0 0;
+}
+
+#btn-saveAndShare:hover {
+	background-position: 0 -36px;
+}
+
+/* share page */
+#share-posters {
+	background: url(../images/background-4.png);
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	padding-top: 500px;
+}
+
+@media all and (max-width: 1200px) {
+	#share-posters {
+		padding-top: 400px;
+	}
+}
+
+@media all and (max-width: 990px) {
+	#share-posters {
+		padding-top: 300px;
+	}
+}
+
+
+#btn-shareToFacebook,
+#btn-shareToTwitter,
+#btn-download,
+#btn-startover {
+	display: inline-block;
+	cursor: pointer;
+}
+
+#btn-shareToFacebook {
+	background: url(../images/btn-shareOnFacebook.png) 0 0;
+	width: 160px;
+	height: 37px;
+	overflow: hidden;
+}
+
+#btn-shareToFacebook:hover,
+#btn-shareToFacebook:active {
+	background-position: 0 -37px;
+}
+
+#btn-shareToTwitter {
+	background: url(../images/btn-shareOnTwitter.png) 0 0;
+	width: 160px;
+	height: 37px;
+	overflow: hidden;
+}
+
+#btn-shareToTwitter:hover,
+#btn-shareToTwitter:active {
+	background-position: 0 -37px;
+}
+
+#btn-download,
+#btn-startover {
+	width: 159px;
+	height: 36px;
+	overflow: hidden;
+}
+
+#btn-download {
+	background: url(../images/btn-download.png) 0 0;
+}
+
+#btn-download:hover,
+#btn-download:active {
+	background-position: 0 -36px;
+}
+
+#btn-startover {
+	background: url(../images/btn-startover.png) 0 0;
+}
+
+#btn-startover:hover,
+#btn-startover:active {
+	background-position: 0 -36px;
+}
+
+#btn-group div {
+	margin: 10px 0;
+}
+
+/* plugin */
+.mCSB_scrollTools {
+	background-color: #666;
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, 
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, 
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar, 
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+	background-color: #00a1ff;
+}
+
+.friend .checkbox label:before {
+	margin-top: 28px;
+}
+
+.friend .checkbox-primary input[type="checkbox"]:checked + label::after {
+	margin-top: 28px;
+}
+
+.friend {
+	padding-left: 20px;
+	padding-right: 10px;
+}
