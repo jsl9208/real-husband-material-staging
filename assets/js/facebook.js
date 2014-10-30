@@ -1,23 +1,6 @@
 var cnt_cast; //the number of casting role added by user
 
 /*
- * run right after the page is rendered
- */
-window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '788784201188451',
-		cookie     : true,  // enable cookies to allow the server to access 
-		                    // the session
-		xfbml      : true,  // parse social plugins on this page
-		version    : 'v2.1' // use version 2.1
-	});
-
-	FB.getLoginStatus(function(response) {
-		statusChangeCallback(response);
-	});
-}
-
-/*
  * logout this app and facebook
  */
 function logout() {
@@ -304,7 +287,7 @@ function clearCastRoles() {
 }
 
 function sendImageData(arr) {
-	$.post('/combine', 
+	$.post('/combinetest', 
 		{cast_role: arr}, 
 		function(response) {
 			if (response.success) {
@@ -379,12 +362,3 @@ function checkLoginState() {
 	  statusChangeCallback(response);
 	});
 }
-
-$(function() {
-	var winH = window.innerHeight;
-	var winW = window.innerWidth;
-	console.log(winH)
-	$('#login').css({height: winH, overflow: 'hidden'});
-
-	$('#select-display').selectric();
-});

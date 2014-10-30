@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var https = require('https');
-var port = process.env.PORT || 13137;
+var port = process.env.PORT || 3000;
 var fs = require('fs');
 var request = require('request');
 var path = require('path');
@@ -30,9 +30,17 @@ var downloadFile = function (arr, currentId, callback) {
 		return;
 	}
 
+	console.log("Downloading Image #" + currentId);
+
 	var file = fs.createWriteStream(arr[currentId].path);
-	var req = https.get(arr[currentId].url, function (res) {
-		res.pipe(file);
+
+	file.on('open', function(td)
+	{
+		var req = https.get(arr[currentId].url, function (res) {
+			res.pipe(file);
+		}).on('error', function(e) {
+	  		console.error(e);
+		});
 	});
 
 	file.on('close', function() {
@@ -213,6 +221,7 @@ var pasteImageToBackground = function(bgImage, imageArr, currentId, cnt, type, c
 		}
 	}
 }
+
 var combineImages = function (arr, id, names, callback) {
 	var cnt = arr.length;
 	var currentId = 0;
@@ -274,7 +283,7 @@ app.post('/combine', function (req, res) {
 	var dataReceived = req.body;
 	var data = dataReceived.cast_role;
 	// console.log(data);
-	var ret = processData('tmp/', data); //process image array for combination function
+	var ret = processData('./tmp/', data); //process image array for combination function
 	var imageData =  ret[0];
 	var names = ret[1];
 	/* download user and friend images */
@@ -297,6 +306,48 @@ app.post('/combine', function (req, res) {
 		
 	}); 
 
+});
+
+app.post('/combinetest', function (req, res) {
+	if (!req.body) return res.sendStatus(400);
+
+	var dataReceived = req.body;
+	var data = dataReceived.cast_role;
+	// console.log(data);
+	var ret = processData('./tmp/', data); //process image array for combination function
+	var imageData =  ret[0];
+	var names = ret[1];
+	
+	console.log("before download");
+
+	downloadFiles(imageData, function() {
+	/*
+		var cnt = imageData.length;
+		var currentId = 0;
+		var timestamp = Date.parse(new Date());
+		var rand = Math.ceil(Math.random()*10000);
+		var filename = timestamp + '_' + rand + '.jpg';
+		var dir = 'tmp/';
+		var path = dir + filename;
+		var x, y, step;
+		if (id == 1) {
+			x = 55, y = 480, step = 90;
+		} else if (id == 2) {
+			x = 330, y = 1535, step = 40;
+		} else if (id == 3) {
+			x = 675, y = 1600, step = 80;
+		}
+		drawArr(gm('bg-images/bg-' + id + '.jpg'), id, x, y, names, cnt, step, function(gm_image) {
+			gm_image.write(res, function(err) {
+				if (err) {
+					console.log(err);
+				}
+			});
+		});
+	*/
+		res.end("OK");
+	});
+	
 });
 
 

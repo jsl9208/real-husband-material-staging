@@ -19,7 +19,7 @@
 <div class="container hide text-center" id="login">
 	<img src="assets/images/background-1.png">
 	<div class="login-button">
-		<fb:login-button size="xlarge" scope="public_profile,email,publish_actions,user_friends,read_friendlists" onlogin="checkLoginState();"></fb:login-button>
+		<fb:login-button size="xlarge" scope="public_profile,user_friends" onlogin="checkLoginState();"></fb:login-button>
 	</div>
 </div>
 
@@ -122,15 +122,38 @@
 	</div>
 </script>
 
-<script type="text/javascript">
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
 <script type="text/javascript" src="assets/js/facebook.js"></script>
+
+<script type="text/javascript">
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '1553442524891374',
+			cookie     : true,  // enable cookies to allow the server to access 
+			xfbml      : true,  // parse social plugins on this page
+			version    : 'v2.1' // use version 2.1
+		});
+
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });	
+	};
+
+	(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));  
+
+	$(function() {
+		var winH = window.innerHeight;
+		var winW = window.innerWidth;
+		console.log(winH);
+		$('#login').css({height: winH, overflow: 'hidden'});
+
+		$('#select-display').selectric();
+	});  
+</script>
 </body>
 </html>
